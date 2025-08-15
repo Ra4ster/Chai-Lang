@@ -1,27 +1,31 @@
 # Chai — quickstart & language reference
 
+<p align="center">
+  <img src="https://github.com/Ra4ster/Chai-Lang/blob/main/Chai.jpg" alt="Chai Logo" width="512">
+</p>
+
 **Chai** (pronounced like the tea) is a compact systems language built around *memory proximity*: declarations place values relative to each other, letting you express stride, interleave, reverse, fill, and exact placement directly in source. Chai aims for predictable, cache-friendly layouts and concise, readable syntax for low-level memory control.
 
 ---
 
 ## Table of contents
 
-1. Overview & philosophy  
-2. Quick hello world  
-3. Primitives (basic types)  
-4. Memory model & arena concepts  
-5. Placement / proximity operators (`+`, `-`, `/`, `*`, `~`, `%`)  
-6. Anchors & global bases (`origin`, `warp`, `cacheline`, etc.)  
-7. Views & reinterpretation semantics  
-8. Objects, structs, inheritance, methods, and overload rules  
-9. Vectors / collections and counts  
-10. GPU / warp directives & profiles  
-11. Intrinsics & runtime helpers (`closest`, `spacefrom`, `move`, `align`, `delete`)  
-12. Compile-time vs runtime checks, warnings, and sanitizer mode  
-13. Examples (memory visuals)  
-14. Performance notes & comparison to C/stack/heap patterns  
-15. FAQ & best practices  
-16. Glossary, licensing, and next steps
+1. [Overview & philosophy](#1-overview--philosophy)
+2. [Quick hello](#2-quick-hello)
+3. [Primitives](#3-primitives)
+4. [Memory model & arenas](#4-memory-model--arenas)
+5. [Placement & proximity operators](#5-placement--proximity-operators)
+6. [Anchors & global bases](#6-anchors--global-bases)
+7. [Views & reinterpretation](#7-views--reinterpretation)
+8. [Objects, structs, inheritance, and methods](#8-objects-structs-inheritance-and-methods)
+9. [Vectors and counts](#9-vectors-and-counts)
+10. [GPU / warp directives & profiles](#10-gpu--warp-directives--profiles)
+11. [Intrinsics & runtime helpers](#11-intrinsics--runtime-helpers)
+12. [Compile-time vs runtime checks, warnings, sanitizer](#12-compile-time-vs-runtime-checks-warnings-sanitizer)
+13. [Examples (concise with visualizations)](#13-examples-concise-with-visualizations)
+14. [Performance notes & comparison to C/stack/heap](#14-performance-notes--comparison-to-cstackheap)
+15. [FAQ & best practices](#15-faq--best-practices)
+16. [Glossary, license & next steps](#16-glossary-license--next-steps)
 
 ---
 
@@ -80,7 +84,7 @@ Chai uses familiar short names:
 
 ---
 
-## 5. Placement / proximity operators (detailed)
+## 5. Placement & proximity operators
 
 ### `+` and `-` (adjacency)
 - `T name + anchor = val;` — place `name` immediately after `anchor` (adjacent at anchor’s base or end depending on anchor type).
